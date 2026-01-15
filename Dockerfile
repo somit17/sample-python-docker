@@ -1,14 +1,14 @@
-# Python env
+# Pull base image which gives all required tools and libraries
 
 FROM python:3.19-slim 
 
-#Set working directory
+#Set working directory where app code will be store
 
 WORKDIR /app
 
-#Copy current dir contents to container at /app
+#Copy source code from Host to container
 
 COPY ./app /app
 
-# Run the script when the container launches
+# Run the application
 CMD ["python", "main.py"]
