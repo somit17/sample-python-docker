@@ -1,6 +1,6 @@
 # Pull base image which gives all required tools and libraries
 
-FROM python:3.19-slim 
+FROM python:3.11-slim 
 
 #Set working directory where app code will be store
 
