@@ -1,14 +1,15 @@
 import mysql.connector
 from mysql.connector import Error
-
+import os
 
 def connect_to_mysql():
    try:
       connection = mysql.connector.connect(
-            host='boring_archimedes',  
-            user='root',       # MySQL username
-            password='root',   # MySQL password
-            database='devops'  # Optional: specify a default database
+            host=os.environ.get('MYSQL_HOST','localhost'),
+            port=int(os.environ.get('MYSQL_PORT', 3306)),
+            user=os.environ.get('MYSQL_USER', 'root'),
+            password=os.environ.get('MYSQL_PASSWORD', ''),
+            database=os.environ.get('MYSQL_DATABASE', 'devops')
         )
       
       if connection.is_connected():
